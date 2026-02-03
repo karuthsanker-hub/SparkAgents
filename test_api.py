@@ -1,6 +1,7 @@
 import pytest
 from fastapi.testclient import TestClient
 from app import app
+from weather import get_weather  # Importing get_weather
 
 client = TestClient(app)
 
