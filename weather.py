@@ -10,5 +10,13 @@ async def get_weather():
         "windspeed_unit": "mph"
     }
     async with httpx.AsyncClient() as client:
-        response = await client.get(url, params=params)
-        return response.json()
+        try:
+            response = await client.get(url, params=params)
+            response.raise_for_status()
+            return response.json()
+        except httpx.HTTPStatusError as e:
+            print(f"HTTP error occurred: {e}")
+            return None
+        except Exception as e:
+            print(f"An error occurred: {e}")
+            return None
