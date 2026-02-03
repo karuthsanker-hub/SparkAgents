@@ -5,3 +5,6 @@ def calculate_gpa(grades):
     total = sum(grades)
     gpa = total / len(grades)
     return gpa
+
+def check_risk(gpa):
+    return gpa < 3.0

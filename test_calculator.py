@@ -13,6 +13,20 @@ def test_calculate_gpa():
     grades = []
     assert calculator.calculate_gpa(grades) == 0.0
 
+def test_check_risk():
+    # Test case 1: GPA above 3.0
+    gpa = 3.5
+    assert not calculator.check_risk(gpa)
+    
+    # Test case 2: GPA below 3.0
+    gpa = 2.5
+    assert calculator.check_risk(gpa)
+    
+    # Test case 3: GPA exactly 3.0
+    gpa = 3.0
+    assert not calculator.check_risk(gpa)
+
 # Run the tests
 if __name__ == '__main__':
     test_calculate_gpa()
+    test_check_risk()
